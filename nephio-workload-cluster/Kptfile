@@ -5,4 +5,8 @@ metadata:
   annotations:
     config.kubernetes.io/local-config: "true"
 info:
-  description: nephio-workload-cluster description
+  description: nephio workload cluster package
+pipeline:
+  mutators:
+  - image: gcr.io/kpt-fn/apply-replacements:v0.1.1
+    configPath: apply-replacements.yaml
