@@ -21,7 +21,7 @@ replacements:
   - select:
       kind: PackageVariant
     fieldPaths:
-    - spec.injectors.[kind=WorkloadCluster].name
+    - spec.injectors.[kind=WorkloadCluster].clusterName
     - spec.pipeline.mutators.[image=gcr.io/kpt-fn/set-annotations:v0.1.4].configMap.[nephio.org/cluster-name]
   - select:
       kind: WorkloadCluster
