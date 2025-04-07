@@ -12,9 +12,19 @@ replacements:
   targets:
   - select:
       kind: PackageVariant
-      name: ""
     fieldPaths:
     - metadata.name
+    - spec.downstream.package
     options:
-      delimiter: "-"
+      delimiter: '-'
       index: 0
+  - select:
+      kind: PackageVariant
+    fieldPaths:
+    - spec.injectors.[kind=WorkloadCluster].name
+    - spec.pipeline.mutators.[image=gcr.io/kpt-fn/set-annotations:v0.1.4].configMap.[nephio.org/cluster-name]
+  - select:
+      kind: WorkloadCluster
+    fieldPaths:
+    - metadata.name
+    - spec.clusterName
