@@ -1,15 +1,21 @@
 # nephio-workload-cluster
 
 ## Description
+nephio-workload-cluster description
 
-Deploying this package to the Nephio management cluster will result in the
-provisioning of a workload cluster, associated repository, tokens, secrets,
-and other resources needed to fully register the new cluster with Nephio.
+## Usage
 
-To accomplish this, the package will deploy two additional packages to the management
-cluster repo (one for the cluster and one for the repository) and two additional packages
-to the management staging repo (one for configsync and one for rootsync).
-The names of those packages will be based on the name of the cluster-name. So, if this package
-is cloned to the name "cluster-01", it will deploy two additional packages,
-"cluster-01-cluster", "cluster-01-repo", "cluster-01-rootsync" and "cluster-01-configsync"
+### Fetch the package
+`kpt pkg get REPO_URI[.git]/PKG_PATH[@VERSION] nephio-workload-cluster`
+Details: https://kpt.dev/reference/cli/pkg/get/
 
+### View package content
+`kpt pkg tree nephio-workload-cluster`
+Details: https://kpt.dev/reference/cli/pkg/tree/
+
+### Apply the package
+```
+kpt live init nephio-workload-cluster
+kpt live apply nephio-workload-cluster --reconcile-timeout=2m --output=table
+```
+Details: https://kpt.dev/reference/cli/live/
