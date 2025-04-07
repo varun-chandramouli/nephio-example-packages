@@ -27,4 +27,4 @@ replacements:
       kind: WorkloadCluster
     fieldPaths:
     - metadata.name
-    - spec.clusterName
+    - spec.name
